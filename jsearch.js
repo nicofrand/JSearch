@@ -119,7 +119,7 @@ var JSearch = (function()
 
 		if ((typeof(pattern) === "string") && pattern)
 		{
-			var cp = [];
+			cp = [];
 			var nextOperatorInfos = null;
 			var idx = -1;
 			var op = null;
