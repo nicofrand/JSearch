@@ -203,12 +203,14 @@ var JSearch = (function()
 		}
 		if (prepared instanceof Array)
 		{
+			var i = 0;
 			var size = prepared.length;
 			var firstElement = prepared[0];
+
 			if (firstElement instanceof Array)
 			{
 				var op = [];
-				for (var i = 0; i < size; ++i)
+				for (i = 0; i < size; ++i)
 					op.push(_optimize(prepared[i]));
 
 				return op;
@@ -221,12 +223,7 @@ var JSearch = (function()
 				var regexText = "";
 				if (firstElement === _OPERATORS.OR)
 				{
-					var flag = "";
-					if (_caseInsensitive)
-						flag += "i";
-
-
-					for (var i = 1; i < size; ++i)
+					for (i = 1; i < size; ++i)
 					{
 						var element = prepared[i];
 						regexText += "(?:";
@@ -239,7 +236,7 @@ var JSearch = (function()
 				}
 				else if (firstElement === _OPERATORS.AND)
 				{
-					for (var i = 1; i < size; ++i)
+					for (i = 1; i < size; ++i)
 					{
 						var element = prepared[i];
 						regexText += "(?=[^]*";
