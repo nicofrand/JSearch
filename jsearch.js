@@ -299,6 +299,21 @@ var JSearch = (function()
 				var scoreNeeded = 1;
 				var score = 0;
 
+				var size = cp.length;
+				for (var i = 0; i < size; ++i)
+				{
+					var el = cp[i];
+					if (el === _OPERATORS.AND)
+					{
+						if (cp[i+1])
+							scoreNeeded++;
+					}
+					else if ((el !== _OPERATORS.OR) && _matches(s, el))
+						score++;
+				}
+
+				/*
+
 				if (_matches(s, cp[0]))
 					score++;
 
@@ -311,6 +326,7 @@ var JSearch = (function()
 					if (_matches(s, cp[2]))
 						score++;
 				}
+				*/
 
 				return (score >= scoreNeeded);
 			}
