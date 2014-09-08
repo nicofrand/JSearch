@@ -312,22 +312,6 @@ var JSearch = (function()
 						score++;
 				}
 
-				/*
-
-				if (_matches(s, cp[0]))
-					score++;
-
-				var operator = cp[1];
-				if (operator && (operator === _OPERATORS.AND))
-					scoreNeeded++;
-
-				if (score < scoreNeeded)
-				{
-					if (_matches(s, cp[2]))
-						score++;
-				}
-				*/
-
 				return (score >= scoreNeeded);
 			}
 		}
